@@ -17,6 +17,7 @@
     </script>
   </head>
   <body>
+   
     <div class="main">
       <div class="main__left">
         <div class="main__videos">
@@ -43,15 +44,8 @@
           </div>
 
           <div class="main__controls_block">
-            <div class="main__controls_button">
-              <i class="fa fa-shield"></i>
-              <span>Security</span>
-            </div>
-            <div class="main__controls_button">
-              <i class="fa fa-users"></i>
-              <span>Participants</span>
-            </div>
-            <div class="main__controls_button">
+           
+            <div id="showChat" class="options__button">
               <i class="fa fa-comment"></i>
               <span>Chat</span>
             </div>
@@ -66,11 +60,21 @@
         </div>
       </div>
       <div class="main__right">
-        <div class="main__header">
-          <h6>Chat</h6>
-        </div>
+        <div class="header">
+          <div class="logo">
+            <div class="header__back">
+              <i class="fa fa-angle-left"></i>
+            </div>
+            <h3>Chat</h2>
+          </div>
+        </div> 
         <div class="main__chat__window" id="main__chat__window">
-          <ul class="messages" id="all_messages"></ul>
+          <div class="main__chat__window" id="main__chat__window">
+            <div class="messages" id="all_messages">
+
+            </div>
+            
+          </div>
         </div>
         <div class="main__message_container">
           <input

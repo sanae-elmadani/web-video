@@ -4,7 +4,24 @@ const all_messages = document.getElementById("all_messages");
 const main__chat__window = document.getElementById("main__chat__window");
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
+const showChat = document.querySelector("#showChat");
+const backBtn = document.querySelector(".header__back");
 myVideo.muted = true;
+showChat.addEventListener("click", () => {
+  document.querySelector(".main__right").style.display = "flex";
+  document.querySelector(".main__right").style.flex = "1";
+  document.querySelector(".main__left").style.display = "none";
+  document.querySelector(".header__back").style.display = "block";
+});
+backBtn.addEventListener("click", () => {
+  document.querySelector(".main__left").style.display = "flex";
+  document.querySelector(".main__left").style.flex = "1";
+  document.querySelector(".main__right").style.display = "none";
+  document.querySelector(".header__back").style.display = "none";
+});
+
+const user = prompt("Enter your name");
+console.log(user)
 
 var peer = new Peer(undefined, {
   path: "/peerjs",
@@ -47,13 +64,16 @@ navigator.mediaDevices
         chatInputBox.value = "";
       }
     });
-
-    socket.on("createMessage", (msg) => {
-      console.log(msg);
-      let li = document.createElement("li");
-      li.innerHTML = msg;
-      all_messages.append(li);
-      main__chat__window.scrollTop = main__chat__window.scrollHeight;
+    socket.on("createMessage", (message, userName) => {
+      all_messages .innerHTML =
+      all_messages.innerHTML +
+        `<div class="message">
+            <b><i class="far fa-user-circle"></i> <span> ${
+              userName === user ? "me" : userName
+            }</span> </b>
+            <span>${message}</span>
+        </div>`;
+        main__chat__window.scrollTop = main__chat__window.scrollHeight;
     });
   });
 
