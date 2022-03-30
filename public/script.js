@@ -20,8 +20,6 @@ backBtn.addEventListener("click", () => {
   document.querySelector(".header__back").style.display = "none";
 });
 
-const user = prompt("Enter your name");
-console.log(user)
 
 var peer = new Peer(undefined, {
   path: "/peerjs",
@@ -30,6 +28,11 @@ var peer = new Peer(undefined, {
 });
 
 let myVideoStream;
+const user = prompt("Enter your name");
+
+
+
+
 
 var getUserMedia =
   navigator.getUserMedia ||
@@ -65,10 +68,11 @@ navigator.mediaDevices
       }
     });
     socket.on("createMessage", (message, userName) => {
+    
       all_messages .innerHTML =
       all_messages.innerHTML +
         `<div class="message">
-            <b><i class="far fa-user-circle"></i> <span> ${
+            <b><i class="fa fa-user"></i> <span> ${
               userName === user ? "me" : userName
             }</span> </b>
             <span>${message}</span>
