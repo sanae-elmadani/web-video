@@ -19,7 +19,7 @@ backBtn.addEventListener("click", () => {
   document.querySelector(".main__right").style.display = "none";
   document.querySelector(".header__back").style.display = "none";
 });
-const user =prompt("entre you name")
+
 
 
 var peer = new Peer(undefined, {
@@ -29,12 +29,6 @@ var peer = new Peer(undefined, {
 });
 
 let myVideoStream;
-
-
-
-
-
-
 var getUserMedia =
   navigator.getUserMedia ||
   navigator.webkitGetUserMedia ||
@@ -47,19 +41,13 @@ navigator.mediaDevices
     audio: true,
   })
   .then((stream) => {
-    
-    
+    const user =prompt("entre you name");
     myVideoStream = stream;
-  
-   
     addVideoStream(myVideo, stream);
-
     peer.on("call", (call) => {
       console.log(user);
-    
       call.answer(stream);
       const video = document.createElement("video");
-
       call.on("stream", (userVideoStream) => {
         addVideoStream(video, userVideoStream);
       });
@@ -76,7 +64,6 @@ navigator.mediaDevices
       }
     });
     socket.on("createMessage", (message, userName) => {
-     
       all_messages .innerHTML =
       all_messages.innerHTML +
         `<div class="message">
