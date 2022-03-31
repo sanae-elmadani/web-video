@@ -120,6 +120,30 @@ video {
 .options__button:hover {
   background-color: #34383b;
 }
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+.message > b {
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.message > b > i {
+  margin-right: 0.7rem;
+  font-size: 1.5rem;
+}
+
+.message > span {
+  background-color: #eeeeee;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
 .main__controls {
   display: flex;
   background-color: #1c1e20;
@@ -204,5 +228,5 @@ video {
   padding: 10px 0;
 }
 .unmute {
-  color: red;
+  color: rgb(34, 211, 113);
 }
